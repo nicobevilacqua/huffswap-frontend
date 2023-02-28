@@ -4,8 +4,10 @@ export const FACTORY_ADDRESSES = {
   1: '0xc0a47dFe034B400B47bDaD5FecDa2621de6c4d95',
   3: '0x9c83dCE8CA20E9aAF9D3efc003b2ea62aBC08351',
   4: '0xf5D915570BC477f9B8D6C0E980aA81757A3AaC36',
+  5: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0', // goerli
   42: '0xD3E51Ef092B2845f10401a0159B2B96e8B6c3D30',
-  100: '0x70E969444603980c94f9fCF612F00767744F92E7'
+  100: '0x70E969444603980c94f9fCF612F00767744F92E7',
+  31337: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0', //  local
 }
 
 export const SUPPORTED_THEMES = {
@@ -103,7 +105,7 @@ export const SUPPORTED_WALLETS =
         }
       }
 
-// list of tokens that lock fund on adding liquidity - used to disable button
+// list of tokens that lock fund on adding liquidity - used to disable button
 export const brokenTokens = [
   '0xB8c77482e45F1F44dE1745F52C74426C631bDD52',
   '0x95dAaaB98046846bF4B2853e23cba236fa394A31',
