@@ -1,29 +1,35 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { Web3ReactProvider, createWeb3ReactRoot } from '@web3-react/core'
-import { ethers } from 'ethers'
+import { Web3ReactProvider, createWeb3ReactRoot } from "@web3-react/core";
+import { ethers } from "ethers";
 
-import { NetworkContextName } from './constants'
-import { isMobile } from 'react-device-detect'
-import LocalStorageContextProvider, { Updater as LocalStorageContextUpdater } from './contexts/LocalStorage'
-import ApplicationContextProvider, { Updater as ApplicationContextUpdater } from './contexts/Application'
-import TransactionContextProvider, { Updater as TransactionContextUpdater } from './contexts/Transactions'
-import BalancesContextProvider, { Updater as BalancesContextUpdater } from './contexts/Balances'
-import TokensContextProvider from './contexts/Tokens'
-import AllowancesContextProvider from './contexts/Allowances'
-import App from './pages/App'
-import ThemeProvider, { GlobalStyle } from './theme'
-import './i18n'
+import { NetworkContextName } from "./constants";
+import LocalStorageContextProvider, {
+  Updater as LocalStorageContextUpdater,
+} from "./contexts/LocalStorage";
+import ApplicationContextProvider, {
+  Updater as ApplicationContextUpdater,
+} from "./contexts/Application";
+import TransactionContextProvider, {
+  Updater as TransactionContextUpdater,
+} from "./contexts/Transactions";
+import BalancesContextProvider, {
+  Updater as BalancesContextUpdater,
+} from "./contexts/Balances";
+import TokensContextProvider from "./contexts/Tokens";
+import AllowancesContextProvider from "./contexts/Allowances";
+import App from "./pages/App";
+import ThemeProvider, { GlobalStyle } from "./theme";
+import "./i18n";
 
-const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName)
+const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName);
 
 function getLibrary(provider) {
-  const library = new ethers.providers.Web3Provider(provider)
-  library.pollingInterval = 10000
-  return library
+  const library = new ethers.providers.Web3Provider(provider);
+  library.pollingInterval = 10000;
+  return library;
 }
-
 
 function ContextProviders({ children }) {
   return (
@@ -38,7 +44,7 @@ function ContextProviders({ children }) {
         </TransactionContextProvider>
       </ApplicationContextProvider>
     </LocalStorageContextProvider>
-  )
+  );
 }
 
 function Updaters() {
@@ -49,7 +55,7 @@ function Updaters() {
       <TransactionContextUpdater />
       <BalancesContextUpdater />
     </>
-  )
+  );
 }
 
 ReactDOM.render(
@@ -66,5 +72,5 @@ ReactDOM.render(
       </ContextProviders>
     </Web3ProviderNetwork>
   </Web3ReactProvider>,
-  document.getElementById('root')
-)
+  document.getElementById("root")
+);

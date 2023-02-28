@@ -35,41 +35,41 @@ const ETH = {
 
 export const INITIAL_TOKENS_CONTEXT = {
   31337: {
-    "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9": {
+    [process.env.REACT_APP_DAI_ADDRESS]: {
       [NAME]: "Dai Stablecoin",
       [SYMBOL]: "DAI",
       [DECIMALS]: 18,
-      [EXCHANGE_ADDRESS]: "0x75537828f2ce51be7289709686A69CbFDbB714F1",
+      [EXCHANGE_ADDRESS]: process.env.REACT_APP_DAI_EXCHANTE_ADDRESS,
     },
-    "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9": {
-      [NAME]: "USD//C",
-      [SYMBOL]: "USDC",
-      [DECIMALS]: 6,
-      [EXCHANGE_ADDRESS]: "0xE451980132E65465d0a498c53f0b5227326Dd73F",
-    },
-    "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707": {
-      [NAME]: "Tether",
-      [SYMBOL]: "USDT",
-      [DECIMALS]: 6,
-      [EXCHANGE_ADDRESS]: "0x5392A33F7F677f59e833FEBF4016cDDD88fF9E67",
-    },
-    "0x0165878A594ca255338adfa4d48449f69242Eb8F": {
-      [NAME]: "Matic",
-      [SYMBOL]: "MATIC",
-      [DECIMALS]: 18,
-      [EXCHANGE_ADDRESS]: "0xa783CDc72e34a174CCa57a6d9a74904d0Bec05A9",
-    },
-    "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853": {
-      [NAME]: "Wrapped BTC",
-      [SYMBOL]: "WBTC",
-      [DECIMALS]: 8,
-      [EXCHANGE_ADDRESS]: "0xB30dAf0240261Be564Cea33260F01213c47AAa0D",
-    },
-    "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6": {
+    // "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9": {
+    //   [NAME]: "USD//C",
+    //   [SYMBOL]: "USDC",
+    //   [DECIMALS]: 6,
+    //   [EXCHANGE_ADDRESS]: "0xE451980132E65465d0a498c53f0b5227326Dd73F",
+    // },
+    // "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707": {
+    //   [NAME]: "Tether",
+    //   [SYMBOL]: "USDT",
+    //   [DECIMALS]: 6,
+    //   [EXCHANGE_ADDRESS]: "0x5392A33F7F677f59e833FEBF4016cDDD88fF9E67",
+    // },
+    // "0x0165878A594ca255338adfa4d48449f69242Eb8F": {
+    //   [NAME]: "Matic",
+    //   [SYMBOL]: "MATIC",
+    //   [DECIMALS]: 18,
+    //   [EXCHANGE_ADDRESS]: "0xa783CDc72e34a174CCa57a6d9a74904d0Bec05A9",
+    // },
+    // "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853": {
+    //   [NAME]: "Wrapped BTC",
+    //   [SYMBOL]: "WBTC",
+    //   [DECIMALS]: 8,
+    //   [EXCHANGE_ADDRESS]: "0xB30dAf0240261Be564Cea33260F01213c47AAa0D",
+    // },
+    [process.env.REACT_APP_WETH_ADDRESS]: {
       [NAME]: "Wrapped Ether",
       [SYMBOL]: "WETH",
-      [DECIMALS]: 8,
-      [EXCHANGE_ADDRESS]: "0x61ef99673A65BeE0512b8d1eB1aA656866D24296",
+      [DECIMALS]: 18,
+      [EXCHANGE_ADDRESS]: process.env.REACT_APP_WETH_EXCHANGE_ADDRESS,
     },
   },
 };
