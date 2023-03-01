@@ -22,6 +22,88 @@ import {
 } from "../../contexts/Application";
 import { OVERLAY_READY } from "../../connectors/Fortmatic";
 
+
+// https://rpc.testnet.mantle.xyz	
+async function changeWalletMantle(e) {
+  e.preventDefault();
+  try{
+  await window.ethereum.request({
+    method: "wallet_addEthereumChain",
+    params: [
+      {
+        //5001
+        chainId: "0x1389",
+        chainName: "Mantle Testnet",
+        nativeCurrency: {
+          name: "Bit",
+          symbol: "BIT",
+          decimals: 18,
+        },
+        rpcUrls: ["https://rpc.testnet.mantle.xyz"],
+        blockExplorerUrls: ["https://explorer.testnet.mantle.xyz/"],
+      }]
+  });
+
+  window.document.reload();
+  } catch(err) {
+    console.error(err)
+  }
+}
+
+// https://scroll.io/alpha/bridge
+async function changeWalletScroll(e) {
+  e.preventDefault();
+  try {
+    await window.ethereum.request({
+      method: "wallet_addEthereumChain",
+      params: [
+        {
+          //534353
+          chainId: "0x082751",
+          chainName: "Neon Devnet",
+          nativeCurrency: {
+            name: "Scroll",
+            symbol: "ETH",
+            decimals: 18,
+          },
+          rpcUrls: ["https://alpha-rpc.scroll.io/l2	"],
+          blockExplorerUrls: ["https://blockscout.scroll.io/"],
+        }]
+    });
+
+    window.document.reload();
+  } catch(err) {
+    console.error(err)
+  }
+}
+
+// https://docs.neon-labs.org/docs/developing/connect_rpc
+async function changeWalletNeon(e) {
+  e.preventDefault();
+  try{
+  await window.ethereum.request({
+    method: "wallet_addEthereumChain",
+    params: [
+      {
+        //245022926
+        chainId: "0xe9ac0ce",
+        chainName: "Neon Devnet",
+        nativeCurrency: {
+          name: "Neon",
+          symbol: "NEON",
+          decimals: 18,
+        },
+        rpcUrls: ["https://proxy.devnet.neonlabs.org/solana","https://https://devnet.neonevm.org"],
+        blockExplorerUrls: ["https://neonscan.org/"],
+      }]
+  });
+
+  window.reload();
+  } catch(err) {
+    console.error(err)
+  }
+}
+
 const CloseIcon = styled.div`
   position: absolute;
   right: 1rem;
@@ -309,7 +391,14 @@ export default function WalletModal({
           </HeaderRow>
           <ContentWrapper>
             {error instanceof UnsupportedChainIdError ? (
-              <h5>Please connect to the Goerli network.</h5>
+              <div>
+                <h5>Please connect to one of these networks:</h5>
+                <ul>
+                <li><a href="#" onClick={changeWalletMantle}>Mantle</a></li>
+                <li><a href="#" onClick={changeWalletScroll}>Scroll</a> </li>
+                <li><a href="#" onClick={changeWalletNeon}>NEON Evm</a> </li>
+                </ul>
+                </div>
             ) : (
               "Error connecting. Try refreshing the page."
             )}
